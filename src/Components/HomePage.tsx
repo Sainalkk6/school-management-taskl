@@ -18,8 +18,3 @@ function HomePage() {
 
 export default HomePage
 
-
-//     <div className="flex flex-col items-center justify-center bg-black text-white p-4 h-screen">
-{/* <span className="font-medium text-2xl mt-6" >Choose a Difficulty</span>
-<HomePage/>
-</div> */}

@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react"
-import answers from "../../../public/answers"
+import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import Button from "./Button"
+import { DataContext } from "../App"
 
 
 function Easy() {
+    const answers = useContext(DataContext)
+
     const [easyQuestions, setEasyQuestions] = useState<any[]>([])
     useEffect(()=>{
-        setEasyQuestions(answers.slice(0,25))
+        if(answers){
+            setEasyQuestions(answers.slice(0,25))
+        }
     },[])
-
-    console.log()
   return (
     <div className="text-left bg-gradient-to-r from-green-900 to-green-500 h-full flex">
         <div className="p-4 w-full h-full">
@@ -25,9 +28,7 @@ function Easy() {
                 ))}
             </ul>
         </div>
-        <Link to="/" className="h-fit mt-5 mr-8 hover:scale-105 text-nowrap px-9 font-medium text-lg hover:bg-red-700 transition duration-200 hover:text-white  py-4 bg-white rounded-md">
-            <button>Back to Home</button>
-        </Link>
+        <Button/>
     </div>
   )
 }

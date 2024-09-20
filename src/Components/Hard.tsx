@@ -4,25 +4,23 @@ import Button from "./Button"
 import { DataContext } from "../App"
 
 
-
-function Medium() {
-
-    const [mediumQuestions, setMediumQuestions] = useState<any[]>([])
+function Hard() {
+    const [hardQuestions, setHardQuestions] = useState<any[]>([])
     const answers = useContext(DataContext)
 
     useEffect(()=>{
         if(answers){
-            setMediumQuestions(answers.slice(25,50))
+            setHardQuestions(answers.slice(50,75))
         }
     },[])
   return (
-    <div className="bg-gradient-to-r from-yellow-800 to-yellow-500 h-full flex">
+    <div className="bg-gradient-to-r from-red-800 to-red-500 h-full flex">
         <div className="p-4 w-full h-full">
             <ul>
-                {mediumQuestions.map((question,ind)=>(
+                {hardQuestions.map((question,ind)=>(
                     <li key={ind}>
                         <button className="mt-3 w-fit hover:text-white text-left transition cursor-pointer duration-100" onClick={question.function}>
-                            <Link to={`/medium/${question.id}`}>
+                            <Link to={`/hard/${question.id}`}>
                                 <span className="font-medium  text-2xl">{question.id}. {question.question}</span>
                             </Link>
                         </button>
@@ -35,4 +33,4 @@ function Medium() {
   )
 }
 
-export default Medium
+export default Hard

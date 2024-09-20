@@ -5,24 +5,24 @@ import { DataContext } from "../App"
 
 
 
-function Medium() {
-
-    const [mediumQuestions, setMediumQuestions] = useState<any[]>([])
+function Expert() {
+    const [expertQuestions, setExpertQuestions] = useState<any[]>([])
     const answers = useContext(DataContext)
 
     useEffect(()=>{
         if(answers){
-            setMediumQuestions(answers.slice(25,50))
+            setExpertQuestions(answers.slice(75,101))
         }
     },[])
+
   return (
-    <div className="bg-gradient-to-r from-yellow-800 to-yellow-500 h-full flex">
+    <div className="text-left bg-gradient-to-r from-amber-900 to-red-900 h-full flex">
         <div className="p-4 w-full h-full">
             <ul>
-                {mediumQuestions.map((question,ind)=>(
+                {expertQuestions.map((question,ind)=>(
                     <li key={ind}>
                         <button className="mt-3 w-fit hover:text-white text-left transition cursor-pointer duration-100" onClick={question.function}>
-                            <Link to={`/medium/${question.id}`}>
+                            <Link to={`/expert/${question.id}`}>
                                 <span className="font-medium  text-2xl">{question.id}. {question.question}</span>
                             </Link>
                         </button>
@@ -35,4 +35,4 @@ function Medium() {
   )
 }
 
-export default Medium
+export default Expert
